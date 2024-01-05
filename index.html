@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Conversie marimi</title>
+</head>
+<body>
+    <header class="header">
+        <h2>Conversie</h2>
+    </header>
+    <br>
+    <div class="conv">
+        <label style="font-size: medium;">Introduce valoarea:</label>
+        <br>
+        <input type="number" id="valoarea1" class="numar">
+        <select name="box1" id="Box1" class="selec">
+            <option value="g" selected>g</option>
+            <option value="kg" selected>kg</option>
+            <option value="t" selected>t</option>
+        </select>
+        <button onclick="afisare()" class="buton">Converteste</button>
+        <br>
+        <span style="font-size: 15px">Valoare convertita:</span>
+        <br>
+        <input type="number" id="valoarea2" class="numar">
+        <select name="box2"id="Box2" class="selec">
+            <option value="g" selected>g</option>
+            <option value="kg" selected>kg</option>
+            <option value="t" selected>t</option>
+        </select>
+    </div>
+    <script>
+       function afisare(){
+        var valoare=document.getElementById("valoarea1").value;
+        var unitatea1=document.getElementById("Box1").value;
+        var unitatea2=document.getElementById("Box2").value;;
+        if(unitatea1==="kg" && unitatea2==="t")
+        valoare*=1000;
+        else if(unitatea1==="kg" && unitatea2==="g")
+        valoare/=1000;
+        else if(unitatea1==="g" && unitatea2==="kg")
+        valoare/=1000;
+        else if(unitatea1==="g" && unitatea2==="t")
+        valoare/=1000000;
+        else if(unitatea1==="t" && unitatea2==="g")
+        valoare*=1000000;
+        else if(unitatea1==="t" && unitatea2==="kg")
+        valoare*=1000;
+        document.getElementById("valoarea2").value=valoare;
+       }
+    </script>
+</body>
+</html>
